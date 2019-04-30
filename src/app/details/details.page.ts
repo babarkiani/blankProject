@@ -10,6 +10,7 @@ import { ApiService } from '../services/api/api.service';
 export class DetailsPage implements OnInit {
   id;
   details;
+  slug;
   constructor(private api: ApiService, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -18,7 +19,16 @@ export class DetailsPage implements OnInit {
     this.details = this.api.data.filter(a => {
       return a.home_banner_id == this.id;
     })
-    console.log(this.details)
+    this.slug = this.details[0].home_banner_slug;
+    console.log(this.details[0].home_banner_slug);
+  }
+
+  update() {
+    this.api.edit(this.slug).then(res => {
+      console.log(res);
+    }).catch(error => {
+      console.log(error);
+    });
   }
 
 }

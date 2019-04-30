@@ -35,10 +35,10 @@ export class ApiService {
       .toPromise();
   }
 
-  edit(this) {
+  edit(x) {
     const body = new HttpParams()
       .set('home_banner_status', '0')
-      .set('home_banner_slug', this)
+      .set('home_banner_slug', x)
       .set('api_key', '40bd001563085fc35165329ea1ff5c5ecbdbbeef')
     return this.httpClient.post('http://itsdigi.com/ionic/edit-home-banners.php',
       body, { 'responseType': 'text' })

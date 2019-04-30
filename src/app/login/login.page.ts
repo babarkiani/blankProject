@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
   user;
+  temp;
+  email;
+  password;
   constructor(public api: ApiService, private router: Router) { }
 
   ngOnInit() {
@@ -16,12 +19,18 @@ export class LoginPage implements OnInit {
   login() {
     this.api.getUser().then(res => {
       console.log(res)
-      this.user = JSON.parse(res);
+      this.temp = JSON.parse(res);
+      this.user = this.temp.login_user_data[0];
       console.log(this.user);
+      if (this.user.user_email == this.email) {
+        console.log('this')
+        this.router.navigate(['home'])
+      }
     }).catch(error => {
       console.log(error)
     })
-    this.router.navigate(['home']);
+
+
   }
 
 }
