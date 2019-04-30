@@ -5,7 +5,7 @@ import { first } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApiService {
-
+  data;
   constructor(public httpClient: HttpClient) { }
 
   display() {
