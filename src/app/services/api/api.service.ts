@@ -36,8 +36,6 @@ export class ApiService {
   }
 
   edit(this) {
-
-
     const body = new HttpParams()
       .set('home_banner_status', '0')
       .set('home_banner_slug', this)

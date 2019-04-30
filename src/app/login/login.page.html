@@ -4,6 +4,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content padding>
+  <div text-center>
+    <ion-input type="email" placeholder="Enter your email" [(ngModel)]="email"></ion-input>
+    <ion-input type="password" placeholder="Enter your password" [(ngModel)]="password"></ion-input>
+    <ion-button ion-buttons block (click)="login()"> Login</ion-button>
+  </div>
 </ion-content>
